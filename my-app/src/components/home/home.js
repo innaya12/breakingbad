@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom'; 
 import axios from "axios";
 import './style.css';
 
@@ -12,16 +13,22 @@ const Home = () => {
         .then((response) => setData(response.data));
     }, []);
     
-    console.log('data',data[6]);
-    
-    ///Running over the Data object and displaying data by different params.
+    console.log('data',data[7]);
+
+    ///Running over the Data object and display the seasin only if the episode id is 1
+    /// and title and air date always display.
     return (
         <div>
             <h1 id="title">Breaking Bad</h1>
             {data.map((data) => (
             <div key={data.episode_id}>
-                <h4>{data.title}</h4>
-                <p>episode id{data.episode_id}</p>
+                {data.episode == '1' ? <h2>Season {data.season}</h2> : ''}
+                <Link 
+                    to={'/episode'} 
+                    state = {{ episode: data.episode, season: data.season }}>
+                    <h3> * {data.title}</h3>
+                </Link>
+                <p>Air date {data.air_date}</p>
             </div>
             ))}
         </div>
