@@ -7,7 +7,7 @@ const EpisodePage = () => {
     let Location = useLocation();
     const [episode, setEpisode] = useState();
 
-    /// Getting specific episode data from api call - getting the episode param from the homePage.
+    /// Getting specific episode data from api call - getting the episode param from HomePage.
     useEffect(() => {
       axios
       .get(`https://breakingbadapi.com/api/episodes/${Location.state.id}`)
@@ -16,7 +16,6 @@ const EpisodePage = () => {
 
     /// Displaying the episode data I got from the api call.
     /// There is Link to the character page the user wants to see - also sends to the 'CharacterPage' component the 'character' name param.
-    /// 
     return (
         <div>
             <h1 id="title">Episode Page</h1>
@@ -25,8 +24,8 @@ const EpisodePage = () => {
                 <h2>Episode title - {episode.title}</h2>
                 <h4> Air date {episode.air_date}</h4>
                 <h4>Characters:</h4>
-                {episode.characters.map((character)=>(
-                <Link to={'/character'} state = {{ id: character }}>
+                {episode.characters.map((character,id)=>(
+                <Link key={id} to={'/character'} state = {{ id: character }}>
                     <p>{character}</p>
                 </Link>
                 ))}
