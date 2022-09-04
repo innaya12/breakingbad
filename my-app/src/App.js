@@ -5,7 +5,6 @@ import CharacterPage from './components/character/characterPage';
 import './App.css';
 
 /// App allows to navigate to three different pages by path
-
 function App() {
   return (
   <Router>
