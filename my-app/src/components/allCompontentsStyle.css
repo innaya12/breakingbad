@@ -1,0 +1,18 @@
+.title {
+    text-align: center;
+    color: #2C6576;
+}
+
+.remove-link-decoration {
+    text-decoration: none;
+    color: #136CB2;
+    font-weight: bold;
+}
+
+.remove-link-decoration:hover {
+    cursor: pointer;
+}
+
+h3 {
+    margin-bottom: 0;
+}

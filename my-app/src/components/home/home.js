@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'; 
-import axios from "axios";
+import axios from 'axios';
+import '../allCompontentsStyle.css';
 import './style.css';
 
 const Home = () => {
@@ -9,7 +10,7 @@ const Home = () => {
     /// Getting all the episodes data from api call - episodes param - saving in data param
     useEffect(() => {
         axios
-        .get("https://breakingbadapi.com/api/episodes")
+        .get('https://breakingbadapi.com/api/episodes')
         .then((response) => setData(response.data));
     }, []);
     
@@ -18,12 +19,12 @@ const Home = () => {
     /// There is Link to the episode page the user wants to see - also sends to the 'EpisodePage' component the 'episode_id' param.
     return (
         <div>
-            <h1 id="title">Breaking Bad</h1>
+            <h1 className='title'>Breaking Bad</h1>
             {data.map((data) => (
             <div key={data.episode_id}>
-                {data.episode == '1' ? <h2>Season {data.season}</h2> : ''}
-                <Link to={'/episode'} state = {{ id: data.episode_id }}>
-                    <h3> * {data.title}</h3>
+                {data.episode == '1' ? <h2 className='season-title'>Season {data.season}</h2> : ''}
+                <Link className='remove-link-decoration' to={'/episode'} state = {{ id: data.episode_id }}>
+                <h3>{data.title}</h3>
                 </Link>
                 <p>Air date {data.air_date}</p>
             </div>
