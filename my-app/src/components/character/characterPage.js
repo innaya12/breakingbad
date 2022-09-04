@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import axios from "axios";
-import { useLocation } from "react-router-dom";
+import axios from 'axios';
+import { useLocation } from 'react-router-dom';
+import '../allCompontentsStyle.css';
+import './style.css';
 
 const CharacterPage = () => {
     let Location = useLocation();
@@ -18,14 +20,14 @@ const CharacterPage = () => {
         <div>
             {typeof character !== 'undefined' && 
             <div>
-                <h2> {character.name}</h2>
-                <h4>Nickname - {character.nickname}</h4>
-                <h4>Date of birth - {character.birthday}</h4>
-                <img src={character.img} style={{width: 300, height:400}}/>
-                <h4>Status - {character.status}</h4>
-                <ul>List of occupations:
+                <h1 className='title'> {character.name}</h1>
+                <h2 className='nickname-title'>Nickname - {character.nickname}</h2>
+                <img src={character.img} className='charater-image' style={{width: 200, height:260}}/>
+                <p>Status - <span className='data-p'>{character.status}</span></p>
+                <p>Date of birth - <span className='data-p'>{character.birthday}</span></p>
+                <ul className='list-title'>List of occupations:
                     {character.occupation.map((occupation, id)=>(
-                    <li key={id}>{occupation}</li>
+                    <li className='list' key={id}>{occupation}</li>
                     ))}
                 </ul>
             </div>

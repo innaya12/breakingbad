@@ -1,0 +1,23 @@
+.nickname-title {
+    color: #664700; 
+    margin-bottom: 10px;
+}
+
+.charater-image {
+    border-radius: 5%;
+}
+
+.data-p {
+    color: #C58F10;
+    font-weight: bold;
+}
+
+.list-title {
+    color: #016640;
+    font-size: 18px;
+}
+
+.list {
+    color: black;
+    font-size: 14px;
+}
