@@ -27,7 +27,7 @@ const EpisodePage = () => {
                 <p> Air date {episode.air_date}</p>
                 <h3 className='characters-list-title'>Characters:</h3>
                 {episode.characters.map((character,id)=>(
-                <Link key={id} className='remove-link-decoration' to={'/character'} state = {{ id: character }}>
+                <Link key={id} id={id} className='remove-link-decoration' to={'/character'} state = {{ id: character }}>
                     <p>{character}</p>
                 </Link>
                 ))}

@@ -24,7 +24,7 @@ const Home = () => {
             <div key={data.episode_id}>
                 {data.episode == '1' ? <h2 className='season-title'>Season {data.season}</h2> : ''}
                 <Link className='remove-link-decoration' to={'/episode'} state = {{ id: data.episode_id }}>
-                <h3>{data.title}</h3>
+                <h3 id={data.episode_id}>{data.title}</h3>
                 </Link>
                 <p>Air date {data.air_date}</p>
             </div>
